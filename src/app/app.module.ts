@@ -17,7 +17,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenubarComponent } from './components/menubar/menubar.component';
+import { HotNewsComponent } from './components/hot-news/hot-news.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { HotNewsCardComponent } from './components/hot-news-card/hot-news-card.component';
 
+import { MatDividerModule } from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -27,7 +33,9 @@ import { MenubarComponent } from './components/menubar/menubar.component';
     AppComponent,
     NavbarComponent,
     SearchComponent,
-    MenubarComponent
+    MenubarComponent,
+    HotNewsComponent,
+    HotNewsCardComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +49,11 @@ import { MenubarComponent } from './components/menubar/menubar.component';
     MatToolbarModule,
     MatMenuModule,
     MatButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatGridListModule,
+    MatDividerModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

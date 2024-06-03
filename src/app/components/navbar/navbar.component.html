@@ -1,19 +1,17 @@
-<div class="navbar">
-    <div class="left-container">
-        <img src="../../../assets/logo.jpg" class="logo" alt="">
+<div class="left-container">
+    <img src="../../../assets/logo.jpg" class="logo" alt="">
 
-        <div class="category-menu">
-            <app-menubar [links]="links"></app-menubar>
-        </div>
-
-        <div class="category-list">
-            <a mat-list-item *ngFor="let link of links" routerLink="{{link.url}}" [activated]="link.isActive">
-                {{ link.name }}
-            </a>
-        </div>
+    <div class="category-menu">
+        <app-menubar [links]="links"></app-menubar>
     </div>
 
-    <div class="right-container">
-        <app-search></app-search>
+    <div class="category-list">
+        <a mat-list-item *ngFor="let link of links" routerLink="{{link.url}}" [activated]="link.isActive">
+            {{ link.name }}
+        </a>
     </div>
+</div>
+
+<div class="right-container">
+    <app-search></app-search>
 </div>

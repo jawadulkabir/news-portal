@@ -1,7 +1,4 @@
-@mixin basic-flex() {
-    display: flex;
-    align-items: center;
-}
+@import '../../../mixins';
 
 $input-border: none;
 
@@ -9,7 +6,7 @@ $input-border: none;
     background-color: red;
 }
 
-.search-container {
+:host {
     @include basic-flex();
 }
 

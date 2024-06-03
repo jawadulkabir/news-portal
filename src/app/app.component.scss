@@ -1,0 +1,17 @@
+@import '../mixins';
+
+.portal-container {    
+    @include centered-container(55%, 2rem);
+}
+
+@media (max-width: 1400px) {
+    .portal-container {    
+        @include centered-container(65%, 2rem);
+    }
+}
+
+@media (max-width: 1100px) {
+    .portal-container {    
+        @include centered-container(75%, 2rem);
+    }
+}

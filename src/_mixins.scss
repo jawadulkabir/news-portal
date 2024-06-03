@@ -1,0 +1,14 @@
+@mixin centered-container($width, $margin) {
+    width: $width;
+    margin: $margin auto;
+}
+
+@mixin clean-link() {
+    color: black;
+    text-decoration: none;
+}
+
+@mixin basic-flex() {
+    display: flex;
+    align-items: center;
+}
