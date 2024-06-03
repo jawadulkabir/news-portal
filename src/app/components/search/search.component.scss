@@ -1,0 +1,28 @@
+@mixin basic-flex() {
+    display: flex;
+    align-items: center;
+}
+
+$input-border: none;
+
+.mat-form-field {
+    background-color: red;
+}
+
+.search-container {
+    @include basic-flex();
+}
+
+.search-bar {
+    input {
+        height: 25px;
+        padding: 10px;
+        font-size: 15px;
+        border: $input-border;
+        background-color: rgb(244, 244, 238);
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

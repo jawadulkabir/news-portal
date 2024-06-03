@@ -1,0 +1,29 @@
+<div class="navbar">
+    <div class="left-container">
+        <img src="../../../assets/logo.jpg" class="logo" alt="">
+
+        <div class="category-menu">
+            <button mat-icon-button class="menu-icon" [matMenuTriggerFor]="menu">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item *ngFor="let link of links">
+                    <a routerLink="/hmm">
+                        {{ link.name }}
+                    </a>
+                </button>
+            </mat-menu>
+        </div>
+
+
+        <div class="category-list">
+            <a mat-list-item routerLink="/hmm" *ngFor="let link of links" [activated]="link.isActive">
+                {{ link.name }}
+            </a>
+        </div>
+    </div>
+
+    <div class="right-container">
+        <app-search></app-search>
+    </div>
+</div>

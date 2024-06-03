@@ -1,0 +1,21 @@
+<div class="search-container">  
+
+    <div class="search-bar">
+        <label for="search-item"></label>
+        <input #searchBar
+            type="text"
+            title="search"
+            [(ngModel)]="value"
+            class="search-item"
+            (blur)="onInputBlur()"
+            placeholder="search"
+        >
+    </div>
+
+    <button mat-icon-button
+        class="menu-icon"
+        (click)="onClick()"
+    >
+        <mat-icon>search</mat-icon>
+    </button>
+</div>
