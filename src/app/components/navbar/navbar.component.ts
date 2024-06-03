@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-import { MatNavList } from '@angular/material/list';
+import { Category } from 'src/app/interfaces/category';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +7,7 @@ import { MatNavList } from '@angular/material/list';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  links = [
+  links: Category[] = [
     { name: 'Latest', url: '/top', isActive: false },
     { name: 'Business', url: '/business', isActive: false },
     { name: 'Crime', url: '/crime', isActive: false },

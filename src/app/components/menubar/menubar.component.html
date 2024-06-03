@@ -1,0 +1,11 @@
+<button mat-icon-button class="menu-icon" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+</button>
+
+<mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let link of links">
+        <a routerLink="{{link.url}}" >
+            {{ link.name }}
+        </a>
+    </button>
+</mat-menu>

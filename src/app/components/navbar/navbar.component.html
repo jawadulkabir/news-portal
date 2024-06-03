@@ -3,21 +3,11 @@
         <img src="../../../assets/logo.jpg" class="logo" alt="">
 
         <div class="category-menu">
-            <button mat-icon-button class="menu-icon" [matMenuTriggerFor]="menu">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item *ngFor="let link of links">
-                    <a routerLink="/hmm">
-                        {{ link.name }}
-                    </a>
-                </button>
-            </mat-menu>
+            <app-menubar [links]="links"></app-menubar>
         </div>
 
-
         <div class="category-list">
-            <a mat-list-item routerLink="/hmm" *ngFor="let link of links" [activated]="link.isActive">
+            <a mat-list-item *ngFor="let link of links" routerLink="{{link.url}}" [activated]="link.isActive">
                 {{ link.name }}
             </a>
         </div>
