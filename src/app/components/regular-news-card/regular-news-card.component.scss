@@ -8,9 +8,8 @@
     padding-bottom: 0.7rem;
 }
 
-.news-image {
-    height: 144px;
-    width: 256px;
+.news-image {    
+    @include fitting-image(256px, 144px);
     margin-right: 1rem;
 }
 

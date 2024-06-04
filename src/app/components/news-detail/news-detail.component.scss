@@ -1,0 +1,32 @@
+@import '../../../mixins';
+
+:host {
+    display: flex;
+    flex-direction: column;
+}
+
+img {
+    align-self: center;
+    @include fitting-image(80%, 600px);
+}
+
+p {
+    margin-top: 0.4rem;
+    margin-bottom: 0.2rem;
+
+    &.article-date {
+        color: grey;
+        font-size: 12px;
+    }
+    
+    &.article-creator {
+        font-weight: 600;
+        font-size: 17px;
+        color: rgb(70, 61, 61);
+    }
+
+    &.article-description {
+        color: rgb(34, 32, 32);
+        font-size: 16px;
+    }
+}

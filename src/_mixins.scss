@@ -12,3 +12,10 @@
     display: flex;
     align-items: center;
 }
+
+@mixin fitting-image($max-w, $max-h) {
+    max-width: $max-w;
+    max-height: $max-h;
+    width: auto;
+    height: auto;
+}

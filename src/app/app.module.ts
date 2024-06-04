@@ -26,6 +26,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
 import { RegularNewsComponent } from './components/regular-news/regular-news.component';
 import { RegularNewsCardComponent } from './components/regular-news-card/regular-news-card.component';
+import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 
 
 
@@ -39,7 +40,8 @@ import { RegularNewsCardComponent } from './components/regular-news-card/regular
     HotNewsComponent,
     HotNewsCardComponent,
     RegularNewsComponent,
-    RegularNewsCardComponent
+    RegularNewsCardComponent,
+    NewsDetailComponent
   ],
   imports: [
     BrowserModule,
