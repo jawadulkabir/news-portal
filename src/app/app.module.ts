@@ -24,6 +24,8 @@ import { HotNewsCardComponent } from './components/hot-news-card/hot-news-card.c
 
 import { MatDividerModule } from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
+import { RegularNewsComponent } from './components/regular-news/regular-news.component';
+import { RegularNewsCardComponent } from './components/regular-news-card/regular-news-card.component';
 
 
 
@@ -35,7 +37,9 @@ import {MatChipsModule} from '@angular/material/chips';
     SearchComponent,
     MenubarComponent,
     HotNewsComponent,
-    HotNewsCardComponent
+    HotNewsCardComponent,
+    RegularNewsComponent,
+    RegularNewsCardComponent
   ],
   imports: [
     BrowserModule,

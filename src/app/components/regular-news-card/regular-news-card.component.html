@@ -1,0 +1,27 @@
+<img [src]="article?.imageUrl" alt="" class="news-image">
+<div class="news-info">
+
+    <p class="article-date">
+        {{article?.publishDate?.toLocaleDateString('en-US', { year: 'numeric', month: 'long',
+            day: 'numeric' })}}
+          
+    </p>
+
+    <p class="article-title">
+            {{article?.title}}
+    </p>
+
+    <p class="article-creator">
+        {{article?.creator}}
+    </p>
+
+    <p class="article-description">
+        {{article?.shortDescription}}
+    </p>
+
+    <mat-chip-listbox aria-label="category" *ngIf="article?.categories && article?.categories!.length > 0">
+        <mat-chip class="article-category" *ngFor="let category of article?.categories?.slice(0, 3)">
+            {{ category}}
+        </mat-chip>
+    </mat-chip-listbox>
+</div>

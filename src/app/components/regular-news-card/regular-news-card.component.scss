@@ -1,0 +1,39 @@
+@import '../../../mixins';
+
+:host {
+    @include basic-flex();
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid rgb(223, 208, 200);
+    padding-bottom: 0.7rem;
+}
+
+.news-image {
+    height: 144px;
+    width: 256px;
+    margin-right: 1rem;
+}
+
+p {
+    &.article-date {
+        color: grey;
+        font-size: 12px;
+        text-align: right;
+    }
+
+    &.article-title {
+        font-weight: 900;
+        font-size: 20px;
+        color: rgba(188, 127, 14, 0.989);
+    }
+    
+    &.article-creator {
+        font-weight: 600;
+        font-size: 17px;
+    }
+
+    &.article-description {
+        color: rgb(41, 36, 36);
+        font-size: 16px;
+    }
+}
