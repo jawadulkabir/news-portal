@@ -18,10 +18,7 @@ export class RegularNewsComponent {
     })
   }
 
-  getCategoryArticles(): void {
-    const category = this.route.snapshot.paramMap.get('categoryType');
-    if(!category) return;
-
+  getCategoryArticles(category: string): void {
     let formattedCategory: string = category.charAt(0).toUpperCase() + category.slice(1);
     this.sectionHeader = `${formattedCategory} News`;
 
@@ -32,7 +29,23 @@ export class RegularNewsComponent {
     });
   }
 
+  getSearchedArticles(searchTerm: string): void {
+    this.sectionHeader = `Search Results`;
+
+    this.newsService.loadSearchResults(searchTerm!)
+      .subscribe(articles => {
+        this.regularNews = articles;
+        console.log(this.regularNews);
+    });
+  }
+
   ngOnInit(): void {
-    this.getCategoryArticles();
+    const category = this.route.snapshot.paramMap.get('categoryType');
+    const searchTerm = this.route.snapshot.paramMap.get('searchTerm');
+    
+    if(category)
+      this.getCategoryArticles(category);
+    else if(searchTerm)
+      this.getSearchedArticles(searchTerm);
   }
 }

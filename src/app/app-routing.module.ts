@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'latest', component: HomeComponent },
   { path: 'detail/:id', component: NewsDetailComponent },
   { path: 'category/:categoryType', component: RegularNewsComponent },
+  { path: 'search/:searchTerm', component: RegularNewsComponent },
   { path: '', redirectTo: '/latest', pathMatch: 'full' },
 ];
 

@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -6,10 +7,12 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
-  value: string = "";
+  searchTerm: string = "";
+  constructor(private router: Router) {}
 
   onClick(): void {
-    
+    if(this.searchTerm)
+      this.router.navigate(['/search',this.searchTerm]);
   }
 
   onInputBlur(): void {
