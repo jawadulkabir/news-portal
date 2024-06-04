@@ -1,6 +1,4 @@
-<div class="regular-news">
-    <h2>Featured News</h2>
-<app-regular-news-card [article]="news"></app-regular-news-card>
-<app-regular-news-card [article]="news"></app-regular-news-card>
-<app-regular-news-card [article]="news"></app-regular-news-card>
+<div class="regular-news" *ngIf="regularNews && regularNews.length > 0">
+    <h2>{{ sectionHeader }}</h2>
+    <app-regular-news-card *ngFor="let news of regularNews" [article]="news"></app-regular-news-card>
 </div>

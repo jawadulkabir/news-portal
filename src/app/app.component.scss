@@ -1,4 +1,4 @@
-@import '../mixins';
+@import '../app/styles/mixins';
 
 .portal-container {    
     @include centered-container(56%, 2rem);

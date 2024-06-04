@@ -8,16 +8,15 @@ import { Category } from 'src/app/interfaces/category';
 })
 export class NavbarComponent {
   links: Category[] = [
-    { name: 'Latest', url: '/top', isActive: false },
-    { name: 'Business', url: '/business', isActive: false },
-    { name: 'Crime', url: '/crime', isActive: false },
-    { name: 'Domestic', url: '/domestic', isActive: false },
-    { name: 'Education', url: '/education', isActive: false },
-    { name: 'Entertainment', url: '/entertainment', isActive: false },
-    { name: 'Environment', url: '/environment', isActive: false },
-    { name: 'Food', url: '/food', isActive: false },
-    { name: 'Health', url: '/health', isActive: false },
-    { name: 'Lifestyle', url: '/lifestyle', isActive: false }
-
+    { name: 'Latest', url: '/latest', isActive: false },
+    { name: 'Business', url: '/category/business', isActive: false },
+    { name: 'Crime', url: '/category/crime', isActive: false },
+    { name: 'Politics', url: '/category/politics', isActive: false },
+    { name: 'Education', url: '/category/education', isActive: false },
+    { name: 'Tourism', url: '/category/tourism', isActive: false },
+    { name: 'Entertainment', url: '/category/entertainment', isActive: false },
+    { name: 'Sports', url: '/category/sports', isActive: false },
+    { name: 'Food', url: '/category/food', isActive: false },
+    { name: 'Health', url: '/category/health', isActive: false },
   ];
 }

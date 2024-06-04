@@ -1,4 +1,4 @@
-@import '../../../mixins';
+@import '../../../app/styles/mixins';
 
 :host {
     display: flex;
@@ -8,6 +8,8 @@
 img {
     align-self: center;
     @include fitting-image(80%, 600px);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 p {
@@ -18,7 +20,7 @@ p {
         color: grey;
         font-size: 12px;
     }
-    
+
     &.article-creator {
         font-weight: 600;
         font-size: 17px;

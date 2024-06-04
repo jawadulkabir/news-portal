@@ -1,10 +1,10 @@
 export interface NewsArticle {
-    articleId: string;
+    article_id: string;
     title?: string | null;
     creator?: string | null;
-    imageUrl?: string | null;
-    shortDescription?: string | null;
-    fullContent?: string | null;
-    publishDate?: Date | null;
-    categories?: string[] | null;
+    image_url?: string | null;
+    description?: string | null;
+    content?: string | null;
+    pubDate?: Date | null;
+    category?: string[] | null;
 }

@@ -1,5 +1,4 @@
 .hot-news-card {
-    background-image: url('../../../assets/sponge.webp');
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
@@ -13,10 +12,10 @@
         margin-bottom: 0.4rem;
         color: white;
         text-shadow:
-            0.12em 0 black,
-            0 0.12em black,
-            -0.12em 0 black,
-            0 -0.12em black;
+            0.09em 0 black,
+            0 0.09em black,
+            -0.09em 0 black,
+            0 -0.09em black;
         
         &.article-subtitle{
             font-size: 12px;

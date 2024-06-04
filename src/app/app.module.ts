@@ -27,6 +27,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import { RegularNewsComponent } from './components/regular-news/regular-news.component';
 import { RegularNewsCardComponent } from './components/regular-news-card/regular-news-card.component';
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -41,7 +43,8 @@ import { NewsDetailComponent } from './components/news-detail/news-detail.compon
     HotNewsCardComponent,
     RegularNewsComponent,
     RegularNewsCardComponent,
-    NewsDetailComponent
+    NewsDetailComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { NewsDetailComponent } from './components/news-detail/news-detail.compon
     MatCardModule,
     MatGridListModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

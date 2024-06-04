@@ -1,18 +1,21 @@
-<div class="hot-news-card" [ngStyle]="{'background-image': 'url(' + article?.imageUrl + ')'}">
-
-    
-    <mat-chip-listbox aria-label="category" *ngIf="article?.categories && article?.categories!.length > 0">
-        <mat-chip class="article-category" *ngFor="let category of article?.categories?.slice(0, 3)">
-            {{ category}}
+<div class="hot-news-card" [ngStyle]="{'background-image': 'url(' + article?.image_url + ')'}">
+    <mat-chip-listbox aria-label="category" *ngIf="article?.category && article?.category!.length > 0">
+        <mat-chip class="article-category" *ngFor="let cat of article?.category?.slice(0, 3)">
+            {{ cat}}
         </mat-chip>
     </mat-chip-listbox>
 
     <p class="article-subtitle">
         {{article?.creator}}
-         • 
-        {{article?.publishDate?.toLocaleDateString('en-US', { year: 'numeric', month: 'long',
-        day: 'numeric' })}}
+        •
+        {{article?.pubDate}}
+        <!-- ?.toLocaleDateString('en-US', { year: 'numeric', month: 'long',
+        day: 'numeric' })}} -->
     </p>
 
-    <p class="article-title">{{article?.title}}</p>
-]</div>
+    <a routerLink="/detail/{{ article?.article_id}}">
+        <p class="article-title">
+            {{article?.title}}
+        </p>
+    </a>
+</div>
