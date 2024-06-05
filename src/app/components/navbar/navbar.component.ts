@@ -14,7 +14,7 @@ export class NavbarComponent {
     { name: 'Politics', url: '/category/politics', isActive: false },
     { name: 'Education', url: '/category/education', isActive: false },
     { name: 'Tourism', url: '/category/tourism', isActive: false },
-    { name: 'Entertainment', url: '/category/entertainment', isActive: false },
+    { name: 'Science', url: '/category/science', isActive: false },
     { name: 'Sports', url: '/category/sports', isActive: false },
     { name: 'Food', url: '/category/food', isActive: false },
     { name: 'Health', url: '/category/health', isActive: false },
