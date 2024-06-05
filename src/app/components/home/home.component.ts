@@ -9,6 +9,7 @@ import { NewsService } from 'src/app/services/news.service';
 })
 export class HomeComponent {
   homePageNews?: NewsArticle [];
+  isLoading: boolean = true;
 
   constructor(private newsService: NewsService) {}
 
@@ -21,14 +22,17 @@ export class HomeComponent {
       },
       error: (err) => {
         console.log(err);
+        this.isLoading = false;
       },
       complete: () => {
         console.log("Homepage News Loaded");
+        this.isLoading = false;
       }
     });
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.loadHomePageNews();
   }
 }

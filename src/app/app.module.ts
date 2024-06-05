@@ -29,6 +29,9 @@ import { RegularNewsCardComponent } from './components/regular-news-card/regular
 import { NewsDetailComponent } from './components/news-detail/news-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { InfiniteScrollModule } from "ngx-infinite-scroll";
+import { FeaturedNewsComponent } from './components/featured-news/featured-news.component';
 
 
 
@@ -44,7 +47,8 @@ import { HomeComponent } from './components/home/home.component';
     RegularNewsComponent,
     RegularNewsCardComponent,
     NewsDetailComponent,
-    HomeComponent
+    HomeComponent,
+    FeaturedNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,9 @@ import { HomeComponent } from './components/home/home.component';
     MatGridListModule,
     MatDividerModule,
     MatChipsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    InfiniteScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]

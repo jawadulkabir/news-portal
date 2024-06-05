@@ -9,8 +9,9 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./regular-news.component.scss']
 })
 export class RegularNewsComponent {
-  @Input() regularNews?: NewsArticle[];
-  sectionHeader = "Featured News";
+  regularNews?: NewsArticle[];
+  sectionHeader = "";
+  isLoading: boolean = true;
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) {
     this.route.paramMap.subscribe(params => {
@@ -23,9 +24,19 @@ export class RegularNewsComponent {
     this.sectionHeader = `${formattedCategory} News`;
 
     this.newsService.loadCategorizedNews(category!)
-      .subscribe(articles => {
-        this.regularNews = articles;
-        console.log(this.regularNews);
+    .subscribe({
+      next: (news) => {
+        this.regularNews = news;
+        console.log(news);
+      },
+      error: (err) => {
+        console.log(err);
+        this.isLoading = false;
+      },
+      complete: () => {
+        console.log("Regular News Loaded");
+        this.isLoading = false;
+      }
     });
   }
 
@@ -33,13 +44,24 @@ export class RegularNewsComponent {
     this.sectionHeader = `Search Results`;
 
     this.newsService.loadSearchResults(searchTerm!)
-      .subscribe(articles => {
-        this.regularNews = articles;
-        console.log(this.regularNews);
+    .subscribe({
+      next: (news) => {
+        this.regularNews = news;
+        console.log(news);
+      },
+      error: (err) => {
+        console.log(err);
+        this.isLoading = false;
+      },
+      complete: () => {
+        console.log("Regular News Loaded");
+        this.isLoading = false;
+      }
     });
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
     const category = this.route.snapshot.paramMap.get('categoryType');
     const searchTerm = this.route.snapshot.paramMap.get('searchTerm');
     
@@ -47,5 +69,9 @@ export class RegularNewsComponent {
       this.getCategoryArticles(category);
     else if(searchTerm)
       this.getSearchedArticles(searchTerm);
+  }
+  
+  onScroll() {
+    console.log("scrolled!!");
   }
 }

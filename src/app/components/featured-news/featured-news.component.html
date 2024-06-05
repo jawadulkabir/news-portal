@@ -1,0 +1,7 @@
+<h2>Featured News</h2>
+
+<div class="featured-news" 
+    *ngIf="featuredNews && featuredNews.length"
+>    
+    <app-regular-news-card *ngFor="let news of featuredNews" [article]="news"></app-regular-news-card>
+</div>

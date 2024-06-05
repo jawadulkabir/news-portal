@@ -1,2 +1,8 @@
-<app-hot-news [hotNews]="homePageNews?.slice(0,3)"></app-hot-news>
-<app-regular-news [regularNews]="homePageNews?.slice(3)"></app-regular-news>
+<div *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
+    <app-hot-news [hotNews]="homePageNews?.slice(0,3)"></app-hot-news>
+    <app-featured-news [featuredNews]="homePageNews?.slice(3)"></app-featured-news>
+</div>
