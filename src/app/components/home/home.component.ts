@@ -16,16 +16,13 @@ export class HomeComponent {
   loadHomePageNews(): void {
     this.newsService.loadLatestNews()
     .subscribe({
-      next: (news) => {
-        this.homePageNews = news;
-        console.log(news);
+      next: (newsData) => {
+        this.homePageNews = newsData.data;
       },
       error: (err) => {
-        console.log(err);
         this.isLoading = false;
       },
       complete: () => {
-        console.log("Homepage News Loaded");
         this.isLoading = false;
       }
     });

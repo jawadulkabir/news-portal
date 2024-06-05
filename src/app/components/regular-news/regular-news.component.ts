@@ -1,7 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NewsArticle } from 'src/app/interfaces/newsArticle';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
+import { NewsData } from 'src/app/interfaces/news-data';
 
 @Component({
   selector: 'app-regular-news',
@@ -12,9 +13,13 @@ export class RegularNewsComponent {
   regularNews: NewsArticle[] = [];
   sectionHeader = "";
   isLoading = true;
+  nextPage = "";
 
   newsObserver = {
-    next: (news: NewsArticle[]) => {
+    next: (newsData: NewsData) => {
+      let news = newsData.data;
+      this.nextPage = newsData.nextPage;
+
       this.regularNews.push(...news);
       console.log(news);
     },
@@ -37,33 +42,37 @@ export class RegularNewsComponent {
   getCategoryArticles(category: string, isScrolled: boolean): void {
     let formattedCategory: string = category.charAt(0).toUpperCase() + category.slice(1);
     this.sectionHeader = `${formattedCategory} News`;
-    if(!isScrolled)
+    if (!isScrolled) {
+      this.nextPage = "";
       this.regularNews = [];
+    }
 
-    this.newsService.loadCategorizedNews(category!)
-    .subscribe(this.newsObserver);
+    this.newsService.loadCategorizedNews(category!, this.nextPage)
+      .subscribe(this.newsObserver);
   }
 
   getSearchedArticles(searchTerm: string, isScrolled: boolean): void {
     this.sectionHeader = `Search Results`;
-    if(!isScrolled)
+    if (!isScrolled) {
+      this.nextPage = "";
       this.regularNews = [];
+    }
 
-    this.newsService.loadSearchResults(searchTerm!)
-    .subscribe(this.newsObserver);
+    this.newsService.loadSearchResults(searchTerm!, this.nextPage)
+      .subscribe(this.newsObserver);
   }
 
   ngOnInit(isScrolled: boolean = false): void {
     this.isLoading = true;
     const category = this.route.snapshot.paramMap.get('categoryType');
     const searchTerm = this.route.snapshot.paramMap.get('searchTerm');
-    
-    if(category)
+
+    if (category)
       this.getCategoryArticles(category, isScrolled);
-    else if(searchTerm)
+    else if (searchTerm)
       this.getSearchedArticles(searchTerm, isScrolled);
   }
-  
+
   onScroll() {
     console.log("scrolled!!");
     this.ngOnInit(true);
