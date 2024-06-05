@@ -1,15 +1,16 @@
 <h2>{{ sectionHeader }}</h2>
-<div class="regular-news" *ngIf="isLoading">
-    <mat-spinner></mat-spinner>
-</div>
 
 <div class="regular-news" 
-    *ngIf="regularNews && regularNews.length > 0 && !isLoading"
+    *ngIf="regularNews && regularNews.length > 0"
     
     infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="50"
+    [infiniteScrollDistance]="1"
+    [infiniteScrollThrottle]="1000"
     (scrolled)="onScroll()"
 >    
     <app-regular-news-card *ngFor="let news of regularNews" [article]="news"></app-regular-news-card>
+</div>
+
+<div class="regular-news" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
 </div>

@@ -9,9 +9,24 @@ import { NewsService } from 'src/app/services/news.service';
   styleUrls: ['./regular-news.component.scss']
 })
 export class RegularNewsComponent {
-  regularNews?: NewsArticle[];
+  regularNews: NewsArticle[] = [];
   sectionHeader = "";
-  isLoading: boolean = true;
+  isLoading = true;
+
+  newsObserver = {
+    next: (news: NewsArticle[]) => {
+      this.regularNews.push(...news);
+      console.log(news);
+    },
+    error: (err: any) => {
+      console.log(err);
+      this.isLoading = false;
+    },
+    complete: () => {
+      console.log("Regular News Loaded");
+      this.isLoading = false;
+    }
+  };
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) {
     this.route.paramMap.subscribe(params => {
@@ -19,59 +34,38 @@ export class RegularNewsComponent {
     })
   }
 
-  getCategoryArticles(category: string): void {
+  getCategoryArticles(category: string, isScrolled: boolean): void {
     let formattedCategory: string = category.charAt(0).toUpperCase() + category.slice(1);
     this.sectionHeader = `${formattedCategory} News`;
+    if(!isScrolled)
+      this.regularNews = [];
 
     this.newsService.loadCategorizedNews(category!)
-    .subscribe({
-      next: (news) => {
-        this.regularNews = news;
-        console.log(news);
-      },
-      error: (err) => {
-        console.log(err);
-        this.isLoading = false;
-      },
-      complete: () => {
-        console.log("Regular News Loaded");
-        this.isLoading = false;
-      }
-    });
+    .subscribe(this.newsObserver);
   }
 
-  getSearchedArticles(searchTerm: string): void {
+  getSearchedArticles(searchTerm: string, isScrolled: boolean): void {
     this.sectionHeader = `Search Results`;
+    if(!isScrolled)
+      this.regularNews = [];
 
     this.newsService.loadSearchResults(searchTerm!)
-    .subscribe({
-      next: (news) => {
-        this.regularNews = news;
-        console.log(news);
-      },
-      error: (err) => {
-        console.log(err);
-        this.isLoading = false;
-      },
-      complete: () => {
-        console.log("Regular News Loaded");
-        this.isLoading = false;
-      }
-    });
+    .subscribe(this.newsObserver);
   }
 
-  ngOnInit(): void {
+  ngOnInit(isScrolled: boolean = false): void {
     this.isLoading = true;
     const category = this.route.snapshot.paramMap.get('categoryType');
     const searchTerm = this.route.snapshot.paramMap.get('searchTerm');
     
     if(category)
-      this.getCategoryArticles(category);
+      this.getCategoryArticles(category, isScrolled);
     else if(searchTerm)
-      this.getSearchedArticles(searchTerm);
+      this.getSearchedArticles(searchTerm, isScrolled);
   }
   
   onScroll() {
     console.log("scrolled!!");
+    this.ngOnInit(true);
   }
 }
