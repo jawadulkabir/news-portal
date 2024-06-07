@@ -21,14 +21,11 @@ export class RegularNewsComponent {
       this.nextPage = newsData.nextPage;
 
       this.regularNews.push(...news);
-      console.log(news);
     },
     error: (err: any) => {
-      console.log(err);
       this.isLoading = false;
     },
     complete: () => {
-      console.log("Regular News Loaded");
       this.isLoading = false;
     }
   };
@@ -74,7 +71,6 @@ export class RegularNewsComponent {
   }
 
   onScroll() {
-    console.log("scrolled!!");
     this.ngOnInit(true);
   }
 }

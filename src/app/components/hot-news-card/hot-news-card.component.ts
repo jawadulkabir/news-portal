@@ -8,5 +8,4 @@ import { NewsArticle } from 'src/app/interfaces/newsArticle';
 })
 export class HotNewsCardComponent {
   @Input() article?: NewsArticle;
-  
 }

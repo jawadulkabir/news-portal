@@ -27,7 +27,7 @@ export class NewsService {
   } 
 
   loadLatestNews(): Observable<NewsData> {
-    let url = `${this.baseUrl}&language=en&apiKey=${this.apiKey}`;
+    let url = `${this.baseUrl}&language=en&apikey=${this.apiKey}`;
     return this.loadNews(url);
   }
 

@@ -14,8 +14,4 @@ export class SearchComponent {
     if(this.searchTerm)
       this.router.navigate(['/search',this.searchTerm]);
   }
-
-  onInputBlur(): void {
-    
-  }
 }
